@@ -1,0 +1,37 @@
+---
+title: "R Notebook"
+output:
+  html_notebook: default
+  html_document: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+#plot(cars)
+
+library(data.table)
+library(leaflet)
+library(plotly)
+library(ggplot2)
+da1<-fread("C://Users//BIGDATA//Desktop//文件//竞赛//p.txt",sep=";",head=TRUE)
+da1<-data.table(da1)
+
+da2<-fread("C://Users//BIGDATA//Desktop//文件//竞赛//xq.txt",sep=";",header =TRUE)
+da2<-data.table(da2)
+
+#离散变量的情况
+data1 <- da1 # 赋值数据
+ggplot(data=data1, aes(x=p, y=value, group=1)) +
+    geom_line() +
+    geom_point()
+ggplot(data=da2, aes(x=week_ones, y=predict, group=1)) +
+    geom_line() +
+    geom_point()
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
